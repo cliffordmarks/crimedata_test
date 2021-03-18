@@ -1,0 +1,19 @@
+# Spring properties
+spring:
+  application:
+     name: crimedata-service  # register my service with this name
+
+# HTTP Server
+server: localhost
+  port: 8080   # HTTP (Tomcat) port 
+ 
+eureka:
+  client:
+    serviceUrl: #use eureka default port
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10   # For dev/test environment
+
+management.endpoints.web.exposure.include: '*'
+
+
