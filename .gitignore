@@ -6,4 +6,7 @@ mem.*
 bin/
 target/
 target/**
+.project
+.classpath
+.settings
 
