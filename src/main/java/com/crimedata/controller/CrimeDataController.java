@@ -28,6 +28,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
+/**
+ * This RestController will handle requests for coming in for /crime/* 
+ * @author Clifford
+ *
+ */
 @RequestMapping(value="crime")
 @RestController
 public class CrimeDataController extends BaseController {
@@ -48,7 +53,16 @@ public class CrimeDataController extends BaseController {
 		throw new CategoriesBadRequestException("Not a valid categories request path");
 	}
 	
-	
+	/**
+	 * It handles GET requests for the categories request path which in turn uses an external service
+	 * to retrieve all crime data categories. It then returns this to the caller of this service as json.
+	 * It also handles exceptions thrown by resttemplate using an error handler 
+	 * RestTemplateResponseErrorHandler. 
+	 * This method will throw a CategoriesNotFoundException if a 404 is returned by the external service.
+	 * or a CategoriesBadRequestException for any other.
+	 * A successful request will return the requested data in json.
+	 * @return
+	 */
     @RequestMapping(value="/categories",method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> getCategoriesResponseEntity() {
     	

@@ -44,7 +44,16 @@ public class CrimesDataController extends BaseController {
 		throw new PostcodeBadRequestException("Not a valid postcode request path");
 	}
 
-
+	/**
+	 * It handles GET requests for the /postcode request that matches the RequestMapping.
+	 * This method will return the, externally retrieved crime data by postcode.
+	 * It also handles exceptions thrown by resttemplate using an error handler 
+	 * RestTemplateResponseErrorHandler. 
+	 * This method will throw a InvalidPostcodeException if a 404 is returned by the external service.
+	 * or a PostcodeBadRequestException for any other.
+	 * A successful request will return the requested data in json.
+	 * @return
+	 */
     @RequestMapping(value="/postcode={postcode}&date={yyyy-mm}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> getCrimesByPostcodeAndDate( @PathVariable("postcode") String postcode,
                          @PathVariable("yyyy-mm") String dateFormatYYYY_MM) {

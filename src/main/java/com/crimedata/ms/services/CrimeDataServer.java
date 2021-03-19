@@ -15,6 +15,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @Import(CrimeDataConfig.class)
 public class CrimeDataServer {
 
+	/**
+	 * Start our client service server
+	 * @param args
+	 */
     public static void main(String[] args) {
         //Using crimedata-server.yml for service configuration
         System.setProperty("spring.config.name", "crimedata-server");

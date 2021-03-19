@@ -5,7 +5,11 @@ import com.crimedata.ms.services.reg_server.RegistrationServer;
 
 public class MainClass {
 
-	
+	/**
+	 * Convenience class to automate starting up of the chosen discovery server and 
+	 * client service server 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		
