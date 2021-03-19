@@ -7,13 +7,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
 
 import com.crimedata.exceptions.CategoriesBadRequestException;
 import com.crimedata.exceptions.CategoriesNotFoundException;
 import com.crimedata.exceptions.InvalidPostcodeException;
 
-@ControllerAdvice
-public class MSExceptionHandler {
+//@RestController 
+@ControllerAdvice //witut controller advice
+public class MSExceptionHandler  {
 
 	@Autowired
 	Environment env;

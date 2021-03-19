@@ -28,5 +28,7 @@
 	<classpathentry kind="lib" path="C:/libs/cglib-2.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/mavenrepo/repo/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.0.0.RELEASE/spring-cloud-netflix-eureka-server-2.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/mavenrepo/repo/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.0.0.RELEASE/spring-cloud-netflix-eureka-client-2.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/mavenrepo/repo/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/mavenrepo/repo/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

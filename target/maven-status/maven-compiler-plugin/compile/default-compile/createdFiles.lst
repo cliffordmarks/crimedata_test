@@ -2,6 +2,7 @@ com\crimedata\exceptions\CategoriesNotFoundException.class
 com\crimedata\controller\BaseController.class
 com\crimedata\MainClass.class
 com\crimedata\config\CrimeDataConfig.class
+com\crimedata\controller\exhandlers\MSErrorResponseBean$ErrorView.class
 com\crimedata\controller\exhandlers\MSErrorResponseBean.class
 com\crimedata\controller\CrimesDataController.class
 com\crimedata\controller\CrimeDataController.class

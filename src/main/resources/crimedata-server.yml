@@ -4,7 +4,7 @@ spring:
      name: crimedata-service  # register my service with this name
 
 # HTTP Server
-server: localhost
+server: 
   port: 8080   # HTTP (Tomcat) port 
  
 eureka:

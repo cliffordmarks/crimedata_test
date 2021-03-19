@@ -1,11 +1,22 @@
 package com.crimedata.controller.exhandlers;
 
+import  com.fasterxml.jackson.annotation.JsonView;
+
+
+@JsonView
 public class MSErrorResponseBean {
 
+	public interface ErrorView {};
+	
+	@JsonView(ErrorView.class)
     private String type;
+	@JsonView(ErrorView.class)
     private String title;
+	@JsonView(ErrorView.class)
     private String httpStatusCode;
+	@JsonView(ErrorView.class)
     private String messageDetail;
+	@JsonView(ErrorView.class)
     private String errorInstance;
 
 
