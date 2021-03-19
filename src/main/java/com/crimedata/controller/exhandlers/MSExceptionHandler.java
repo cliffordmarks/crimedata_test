@@ -16,8 +16,7 @@ import com.crimedata.exceptions.CategoriesBadRequestException;
 import com.crimedata.exceptions.CategoriesNotFoundException;
 import com.crimedata.exceptions.InvalidPostcodeException;
 
-//@RestController 
-@ControllerAdvice //witut controller advice
+@ControllerAdvice
 public class MSExceptionHandler  {
 
 	@Autowired
