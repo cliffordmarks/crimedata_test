@@ -45,7 +45,7 @@ public class CrimesDataController extends BaseController {
 	}
 
 
-    @RequestMapping(value="/postcode={postcode}&date={yyyy-mm}", method = RequestMethod.GET)
+    @RequestMapping(value="/postcode={postcode}&date={yyyy-mm}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> getCrimesByPostcodeAndDate( @PathVariable("postcode") String postcode,
                          @PathVariable("yyyy-mm") String dateFormatYYYY_MM) {
 

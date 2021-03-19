@@ -49,7 +49,7 @@ public class CrimeDataController extends BaseController {
 	}
 	
 	
-    @RequestMapping(value="/categories",method = RequestMethod.GET)
+    @RequestMapping(value="/categories",method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> getCategoriesResponseEntity() {
     	
         HttpEntity <String> entity = new HttpEntity<String>(jsonHeader);
