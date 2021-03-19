@@ -5,3 +5,5 @@ mem.*
 *.ear
 bin/
 target/
+target/**
+
