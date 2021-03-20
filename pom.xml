@@ -46,12 +46,13 @@
 		    <artifactId>spring-boot-starter</artifactId> 
 		</dependency>
 
+		<!--
 		<dependency>
 			<groupId>com.monitorjbl</groupId>
 			<artifactId>spring-json-view</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-
+-->
 		<dependency>
 		    <!-- Setup Spring MVC & REST, use Embedded Tomcat -->
 		    <groupId>org.springframework.boot</groupId>
@@ -75,6 +76,20 @@
 		    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-javanica -->
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-javanica</artifactId>
+			<version>1.5.18</version>
+		</dependency>
+
+<!-- hystrix for circuit breaking and thread pooling-->
+<!--		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<version>2.2.5.RELEASE</version>
+		</dependency>
+-->
 
 	</dependencies> 
   

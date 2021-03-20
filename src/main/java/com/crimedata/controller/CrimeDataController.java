@@ -1,38 +1,33 @@
 package com.crimedata.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import com.crimedata.controller.exhandlers.RestTemplateResponseErrorHandler;
 import com.crimedata.exceptions.CategoriesBadRequestException;
 import com.crimedata.exceptions.CategoriesNotFoundException;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-
-import org.springframework.web.bind.annotation.PathVariable;
-
 
 /**
  * This RestController will handle requests for coming in for /crime/* 
+ * It also uses the circuit breaker micro service pattern, via spring cloud 
+ * and the associated netfix hystrix libs
  * @author Clifford
  *
  */
+@EnableCircuitBreaker
 @RequestMapping(value="crime")
 @RestController
 public class CrimeDataController extends BaseController {
@@ -48,7 +43,7 @@ public class CrimeDataController extends BaseController {
 	@Autowired
 	HttpHeaders jsonHeader;
 
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/**", method=RequestMethod.GET, produces = "application/json")
 	public void invalidRequests() {
 		throw new CategoriesBadRequestException("Not a valid categories request path");
 	}
@@ -63,8 +58,8 @@ public class CrimeDataController extends BaseController {
 	 * A successful request will return the requested data in json.
 	 * @return
 	 */
-    @RequestMapping(value="/categories",method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<String> getCategoriesResponseEntity() {
+	@HystrixCommand(threadPoolKey = "getCategoriesThreadPool")
+    public ResponseEntity<String> callCategoriesResponseEntity() {
     	
         HttpEntity <String> entity = new HttpEntity<String>(jsonHeader);
         
@@ -91,5 +86,11 @@ public class CrimeDataController extends BaseController {
         }
         
         return myResponseEntity;
+    }
+
+    @RequestMapping(value="/categories",method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> getCategories() {
+
+    	return callCategoriesResponseEntity();
     }
 }
