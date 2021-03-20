@@ -13,7 +13,6 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 10   # For dev/test environment
-
 management.endpoints.web.exposure.include: '*'
 
 

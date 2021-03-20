@@ -6,17 +6,19 @@ import  com.fasterxml.jackson.annotation.JsonView;
 @JsonView
 public class MSErrorResponseBean {
 
-	public interface ErrorView {};
+	public interface LimitedErrorView {};
+	public interface FullErrorView extends LimitedErrorView{};
 	
-	@JsonView(ErrorView.class)
+	@JsonView(FullErrorView.class)
     private String type;
-	@JsonView(ErrorView.class)
+	
+	@JsonView(LimitedErrorView.class)
     private String title;
-	@JsonView(ErrorView.class)
+	@JsonView(LimitedErrorView.class)
     private String httpStatusCode;
-	@JsonView(ErrorView.class)
+	@JsonView(LimitedErrorView.class)
     private String messageDetail;
-	@JsonView(ErrorView.class)
+	@JsonView(LimitedErrorView.class)
     private String errorInstance;
 
 

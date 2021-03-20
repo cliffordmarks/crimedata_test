@@ -9,6 +9,6 @@ README:
 3.2) In another command window run this command: java -jar target/crimedata-service-0.0.1-SNAPSHOT.jar crimedata
 
 
-4) access the crimedat-service for categories using (example): http://localhost:8080/crime/categories
-5) access the crimedat-service for postcodes using (example): http://localhost:8080/crimes/postcode=TF3 3AY&date=201802
+4) access the crimedat-service for categories using (example): http://<logical-service-id>/crime/categories
+5) access the crimedat-service for postcodes using (example): http://<logical-service-id>/crimes/postcode=TF3 3AY&date=201802
 
